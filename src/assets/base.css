@@ -1,0 +1,38 @@
+/*Archivo principal de estilo para Vue*/
+
+body{
+    margin-top: 60px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    color: black;
+    font-size:1em;
+    background-color:#E6E6E6;
+}
+.btn {
+    text-align: center;
+    box-sizing: content-box;
+    margin: 2px;
+    white-space: normal;
+}
+ th, tr, td {
+    text-align: center;
+    vertical-align: middle;
+    white-space: normal;
+}
+.table{
+    background-color: white;
+    border-radius: 1em;
+    overflow: hidden;
+}
+#titulosOpciones{
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+}
+#titulosOpciones>div>label{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+#ordenador:hover{
+cursor: pointer; 
+background-color: #ececec
+}
