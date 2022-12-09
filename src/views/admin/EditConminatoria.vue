@@ -75,8 +75,10 @@ console.log("conminatoria", conminatoria);
 </script>
 
 <template>
-  <h1>CONMINATORIAS</h1>
-  <h3>EDITAR CONMINATORIA</h3>
+  <div id="titulosOpciones">
+    <h1><b>CONMINATORIAS</b></h1>
+    <h3>EDITAR CONMINATORIA</h3>
+  </div>
   <template v-if="!(conminatoria?.loading || conminatoria?.error)">
     <Form
       @submit="onSubmit"
