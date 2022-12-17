@@ -33,7 +33,7 @@ router.beforeEach(async (to) => {
 
   if (authRequired && !authStore.user) {
     authStore.returnUrl = to.fullPath;
-    alert("Inicie Sesion");
+    alert("Por favor inicie sesion.");
     return "/account/login";
   }
 });

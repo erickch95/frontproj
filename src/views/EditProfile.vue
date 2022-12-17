@@ -61,6 +61,78 @@ async function onSubmit(values) {
   <br />
   <template v-if="!(user?.loading || user?.error)">
     <Form
+      v-if="user.rol_usuario == 'Fiscal'"
+      @submit="onSubmit"
+      :validation-schema="schema"
+      :initial-values="user"
+      v-slot="{ errors, isSubmitting }"
+    >
+      <div class="form-row">
+        <div class="form-group col">
+          <label><b>Cédula de Identidad:</b></label>
+          <Field
+            name="cedula"
+            type="text"
+            readonly
+            class="form-control"
+            placeholder="Ej: 12345678, 24681012-IR"
+            :class="{ 'is-invalid': errors.cedula }"
+          />
+          <div class="invalid-feedback">{{ errors.cedula }}</div>
+        </div>
+        <div class="form-group col">
+          <label><b>Nombre Completo:</b></label>
+          <Field
+            name="nombre"
+            type="text"
+            readonly
+            class="form-control"
+            placeholder="Introducir el nombre completo."
+            :class="{ 'is-invalid': errors.nombre }"
+          />
+          <div class="invalid-feedback">{{ errors.nombre }}</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col">
+          <label><b>Teléfono:</b></label>
+          <Field
+            name="telefono"
+            type="text"
+            class="form-control"
+            placeholder="Introducir télefono."
+            :class="{ 'is-invalid': errors.telefono }"
+          />
+          <div class="invalid-feedback">{{ errors.telefono }}</div>
+        </div>
+        <div class="form-group col">
+          <label>
+            <b>Contraseña:</b>
+            <em v-if="user"> Dejar en blanco para mantener.</em>
+          </label>
+          <Field
+            name="clave"
+            type="password"
+            class="form-control"
+            placeholder="Al menos 8 caracteres."
+            :class="{ 'is-invalid': errors.clave }"
+          />
+          <div class="invalid-feedback">{{ errors.clave }}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" :disabled="isSubmitting">
+          <span
+            v-show="isSubmitting"
+            class="spinner-border spinner-border-sm mr-1"
+          ></span>
+          GUARDAR
+        </button>
+        <router-link to="/" class="btn btn-danger">CANCELAR</router-link>
+      </div>
+    </Form>
+    <Form
+      v-if="user.rol_usuario == 'Registrador'"
       @submit="onSubmit"
       :validation-schema="schema"
       :initial-values="user"
